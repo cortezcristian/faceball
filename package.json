@@ -1,0 +1,36 @@
+{
+  "name": "faceball",
+  "version": "0.0.1",
+  "description": "Faceball game by Heraclitus",
+  "private": true,
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test" : "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:cortezcristian/faceball.git"
+  },
+  "dependencies": {
+    "express": "3.2.0",
+    "jade": "*",
+    "stylus": "*",
+    "mongoose": "*",
+    "mongoose-validate": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "passport-facebook": "*",
+    "cookie": "*",
+    "connect": "*",
+    "connect-mongo": "*",
+    "connect-flash": "*",
+    "socket.io": "~0.9.10",
+    "moment": "*"
+  },
+  "devDependencies": {
+    "mocha": "~1.13.0",
+    "zombie": "~2.0.0-alpha24",
+    "mongoose-fixtures": "0.0.1"
+  }
+}

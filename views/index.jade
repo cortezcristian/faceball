@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  iframe(src="http://nodeknockout.com/iframe/heraclitus",frameborder=0,scrolling=no,allowtransparency=true,width=115,height=25)
+  //h1= title
+  //p Welcome to #{title}
+
+  #graph-container
+  .score
+    | Score: Red 
+    span#red 0 
+    | - Blue 
+    span#blue 0
+  canvas#inputCanvas(width='320', height='240')
+  video#inputVideo(autoplay='autoplay', loop='loop')
+
+block scriptsfoot
+  script
+     superGlobal = parseInt(Math.random()*10);
+  //script(src='/javascripts/kinetic-v4.7.4.min.js') 
+  script(src='/javascripts/kinetic-v3.9.4.min.js') 
+  script(src='/socket.io/socket.io.js')
+  script(src='/javascripts/game.js') 
+  script(src='/javascripts/diagram-graphics.js') 
+  script(src='/javascripts/headtrackr.js') 
+  script(type='text/javascript')
+    var videoInput = document.getElementById('inputVideo');
+    var canvasInput = document.getElementById('inputCanvas');
+    var htracker = new headtrackr.Tracker();
+    htracker.init(videoInput, canvasInput);
+    htracker.start();
+    document.addEventListener('headtrackingEvent',  function(e){
+        xFball.player.attrs.x = parseInt((xFball.WIDTH/2-e.x/20*(-1)*xFball.WIDTH));
+        xFball.player.attrs.y = parseInt((xFball.HEIGHT/2-(e.y-10)/6*xFball.HEIGHT/2));
+    });
